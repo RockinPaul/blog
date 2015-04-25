@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :set_video, only: [:show, :edit, :update, :destroy] # this line say that :set_video method is
+  #called before :show, :edit, :update, :destroy.
 
   # GET /videos
   # GET /videos.json
@@ -10,6 +11,9 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @videos = Video.all
+    @next_video = @video.next
+    @prev_video = @video.prev
   end
 
   # GET /videos/new
